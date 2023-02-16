@@ -13,11 +13,25 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.http import JsonResponse
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework_simplejwt import views as jwt_views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
-
+    path('', include('core.urls')),
+    path('login/', jwt_views.TokenObtainPairView.as_view()),
+    path('token/refresh/', jwt_views.TokenRefreshView.as_view()),
 ]
+
+
+# NOTE: Not working
+# def custom404(request, exception=None):
+#     return JsonResponse({
+#         'status_code': 404,
+#         'error': 'The resource was not found'
+#     })
+
+
+# handler404 = 'server.urls.custom404'

@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     # third-party
     "rest_framework",
+    'rest_framework.authtoken',
+    # local
+    'core',
 ]
 
 MIDDLEWARE = [
@@ -51,7 +54,15 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ],
+    'EXCEPTION_HANDLER': 'rest_framework.views.exception_handler'
+}
 ROOT_URLCONF = "server.urls"
+
+# LOGIN_REDIRECT_URL = '/me'
 
 TEMPLATES = [
     {

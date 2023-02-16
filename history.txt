@@ -1,0 +1,32 @@
+    1  python --version
+    2  python -m venv venv
+    3  source venv/bin/activate
+    4  pip install django
+    5  python -m pip install --upgrade pip
+    6  pip list
+    7  pip freeze > requirements.txt
+    8  pip install djangorestframework
+    9  pip freeze > requirements.txt
+   10  django-admin startproject server .
+   11  history
+   12  python manage.py migrate
+   13  python manage.py createsuperuser
+   14  clear
+   15  python manage.py runserver
+   16  history
+   17  exit
+   18  source /workspaces/Django-StoreAPI/venv/bin/activate
+   19  python manage.py runserver
+   20  python manage.py createapp core
+   21  python manage.py  help
+   22  python manage.py startapp core
+   23  python manage.py runserver
+   24  exit
+   25  source /workspaces/Django-StoreAPI/venv/bin/activate
+   26  python manage.py runserver
+   27  python manage.py migrate
+   28  python manage.py runserver
+   29  pip install djangorestframework_simplejwt
+   30  pip freeze > requirements.txt 
+   31  python manage.py runserver
+   32  history > history.txt 
