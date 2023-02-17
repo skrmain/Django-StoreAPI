@@ -21,7 +21,12 @@ class Saved(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
 
 
+class OrderProductInfo(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.IntegerField()
+
+
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    products = models.ManyToManyField(Product)
-    total = models.FloatField()
+    products = models.ManyToManyField(OrderProductInfo)
+    total = models.FloatField(default=0)
